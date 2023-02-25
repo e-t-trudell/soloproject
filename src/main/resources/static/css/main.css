@@ -1,0 +1,51 @@
+@charset "UTF-8";
+#store{
+	background-image: url('etsylogo.png'); 
+	background-color: aquamarine;
+	background-repeat:no-repeat;
+	height:300px;
+	width:200px;
+	background-position: center;
+	background-size: cover;
+}
+#holdMe{
+	height:100vh;
+	background-size: cover;
+	position: relative;
+	background-repeat: no-repeat;
+	background-position: center;
+	opacity: 0.8;
+}
+#box1{
+	background-image: linear-gradient(90deg, white, blue);
+}
+#box2{
+	background-image: repeating-conic-gradient(green 10%, purple 20%);
+	width:50vh;
+	height:100vw;
+}
+#box3{
+	background-image: repeating-conic-gradient(red 10%, purple 20%);
+	width:50vh;
+	height:100vw;
+}
+#box4{
+	background-image: repeating-conic-gradient(green 10%, purple 20%);
+	height:75vh;
+}
+#box8{
+	background-image: repeating-conic-gradient(yellow 10%, cyan 20%);
+	height:50vh;
+	width:50vh;
+}
+#box5{
+	background-image: repeating-conic-gradient(red 10%, purple 20%);
+	width:100vh;
+	height:70vw;
+}
+#box6{
+	background-image: linear-gradient(270deg, blue, green);
+}
+#box7{
+	background-image: linear-gradient(45deg, green 0%, purple 20% 40%, orange 60% 80%, teal 100%);
+}
