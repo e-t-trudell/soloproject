@@ -152,10 +152,37 @@ public class ItemController {
 		newCart.setItems(items);
 		Cart cart = cartServ.create(newCart);
 		if(cart != null) {
-    		redirectAtt.addFlashAttribute("Success", "Please continue browsing!");
+    		redirectAtt.addFlashAttribute("cartGo", "Item added to cart please continue browsing!");
     		return "redirect:/home";
     	}
 		return null;
+	}
+	@GetMapping("/cart")
+	public String showCart(Model model, 
+			HttpSession session) {
+		List<Item> items = itemServ.getAll();
+		Long userId = (Long) session.getAttribute("userId");
+		User user = userServ.getOneById(userId);
+		model.addAttribute("carts", cartServ.getAll());
+		model.addAttribute("userId", user);
+		model.addAttribute("allItems", items);
+		return "cart.jsp";
+	}
+	@GetMapping("/cart/new")
+	public String cart(HttpSession session, 
+			Model model
+			) {
+		Long userId = (Long) session.getAttribute("userId");
+		User user = userServ.getOneById(userId);
+		model.addAttribute("user", user);
+//		List<Cart> cart = cartServ.getAll();
+		List<Item> items = itemServ.getAll();
+		model.addAttribute("items", items);
+		model.addAttribute("newCart", new Cart());
+//		if(session.getAttribute("userId") == cart.user_id) {
+//			
+//		}
+		return "newCart.jsp";
 	}
 	
 //Add after successfully adding to cart

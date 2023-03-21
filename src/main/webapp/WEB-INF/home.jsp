@@ -35,8 +35,15 @@
    				<a href="/shop/new"><button class="btn btn-info w-100 m-2">+ Add new shop</button></a>
    				<a href="/"><button class="btn btn-primary w-100 m-2">+ Add new user</button></a>
    				<a href="/item/new"><button class="btn btn-success w-100 m-2">+ Add new item</button></a>
+   				<a href="/item/cart"><button class="btn btn-success w-100 m-2">Quick Shop</button></a>
    			</div>
+   			
    			<div  class="container-fluid d-flex flex-column justify-content-between h-100">
+   			<c:if test="${cartGo != null}">
+				<div class="alert alert-success" role="alert">
+					<p><c:out value="${cartGo}"></c:out></p>
+				</div>
+			</c:if>
    				<div id="box2" class="container-fluid d-flex col-sm-6 flex-sm-wrap flex-row w-100 overflow-auto flex-sm-fill border border-3 border-success justify-content-sm-between align-content-sm-top p-2 m-2">
    					<h3 class="text-light">Your shops: </h3>
    					<c:forEach var="shop" items="${shops}">

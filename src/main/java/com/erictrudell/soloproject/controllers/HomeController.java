@@ -53,6 +53,7 @@ public class HomeController {
 //    	System.out.println(createdUser);
         if(createdUser == null) {
             model.addAttribute("newLogin", new LoginUser());
+//            model.addAttribute("email", errors);
             redirectAtt.addFlashAttribute("regError", "Please complete registration to continue.");
             return "redirect:/";
         }
@@ -95,7 +96,14 @@ public class HomeController {
              BindingResult result,
              HttpSession session,
              RedirectAttributes redirectAtt) {
+		if(result.hasErrors()) {
+			model.addAttribute("emailLogErr", "Incorrect email");
+        	model.addAttribute("newLogin", new LoginUser());
+            model.addAttribute("newUser", new User());
+            return "redirect:/";
+        }
         User loggedUser = userServ.login(newLogin, result);
+        
         if(loggedUser == null) {
         	redirectAtt.addFlashAttribute("logError", "Please log in to continue.");
             model.addAttribute("newLogin", new LoginUser());
@@ -106,7 +114,9 @@ public class HomeController {
         return"redirect:/home";
     }
 	@GetMapping("/logout")
-    public String leave(HttpSession session) {
+    public String leave(HttpSession session,
+    		RedirectAttributes redirectAtt) {
+		redirectAtt.addFlashAttribute("logout", "You have successfully logged out");
     	session.removeAttribute("userId");
 //    	removes everything out of session, 
 //    	context dependent be careful using this

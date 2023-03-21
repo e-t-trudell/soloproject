@@ -40,6 +40,11 @@
 			<p>${logError}</p>
 		</div>
 	</c:if>
+	<c:if test="${logout != null}">
+		<div class="alert alert-success" role="alert" >
+			<p>${logout}</p>
+		</div>
+	</c:if>
    <div class="container d-flex flex-row justify-content-between" id="holdMe" style="background-image:url('https://imagewerx.us/wp-content/uploads/2019/03/San-Juan-Mountains-30x40.jpg');">
    		<div class="col-sm-5 border border-success border-3 m-2 p-5 ">
    			<form:form action="/register" method="post" modelAttribute="newUser">
@@ -77,6 +82,11 @@
    		<div class="col-sm-5 border border-success border-3 m-2 p-5">
    			<form:form action="/login" method="post" modelAttribute="newLogin">
    				<div class="form-group row align-items-end">
+   					<c:if test="${emailLogErr != null}">
+						<div class="alert alert-danger" role="alert" >
+							<p>${emailLogErr}</p>
+						</div>
+					</c:if>
    					<form:label path="email" class="col-sm-3 col-form-label text-light bg-dark mb-3">Email:</form:label>
    					<div class="col-sm-9">
    						<form:input path="email" class="form-control border border-info mb-2"></form:input>

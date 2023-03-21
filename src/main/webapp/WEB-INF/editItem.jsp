@@ -54,7 +54,7 @@
    						<c:forEach var="shop" items="${shops}">
    							<div>
    								<c:if test="${user.id == shop.user.id}">
-   									<form:option value="${shop.shop_id}" path="shop">
+   									<form:option value="${item.shop.shop_id}" path="shop">
    										<c:out value="${shop.shopName}"/>
    									</form:option>
    								</c:if>

@@ -51,6 +51,7 @@ public class UserService {
 //    		result.rejectValue("password", "Werewolf", "Invalid credentials");
 //    		return user.get();
 //    	}
+    	
     	if(user.isPresent() && BCrypt.checkpw(newLogin.getPassword(), user.get().getPassword())) {
     	    result.rejectValue("password", "Gryffin", "Invalid Hash!");
     	    return user.get();

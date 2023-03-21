@@ -51,11 +51,11 @@
    							<%-- <td><c:out value="${item.shop.shop_id}"/></td> --%>
    							<td>
    								<c:if test="${user.id==item.user.id}">
-   									<a href="/item/${item.item_id}/edit"><button class="btn btn-info w-100 m-2">Edit Me</button></a>
+   									<a href="/item/${item.item_id}/edit"><button class="btn btn-info w-75 m-2">Edit Me</button></a>
    									<form action="/item/${item.item_id}/delete" method="post">
    									<%-- <input type="hidden"  value="${item.item_id}"> --%>
     									<input type="hidden" name="_method" value="delete">
-    									<input class="btn btn-danger w-100 m-2" type="submit" value="Delete">
+    									<input class="btn btn-danger w-75 m-2" type="submit" value="Delete">
 									</form>
 								</c:if>
 								<!-- brainstorm: 
@@ -64,7 +64,7 @@
     								<!-- <input type="hidden" name="_method" value="put"> -->
     								<input type="hidden" value="${item.item_id}">
     								<!-- input for cart id? -->
-    								<input class="btn btn-success w-100 m-2" type="submit" value="Add to Cart">
+    								<input class="btn btn-success w-75 m-2" type="submit" value="Add to Cart">
 								</form:form>
 							</td>
    						</c:if>
