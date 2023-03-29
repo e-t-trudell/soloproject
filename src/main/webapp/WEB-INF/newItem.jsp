@@ -22,7 +22,7 @@
 </head>
 <body>
    <div id="box1" class="container d-flex flex-row justify-content-between m-2 p-2">
-   		<h2>Welcome <c:out value="${userId.userName}"/> add an item!</h2>
+   		<h2>Welcome <c:out value="${user.userName}"/> add an item!</h2>
 		<a href="/home"><button class="btn btn-info m-2">Home</button></a>
 		<a href="/logout"><button class="btn btn-danger  m-2">Logout</button></a>
    		<a href="/shop/new"><button class="btn btn-success  m-2">+ Add new shop</button></a>
@@ -31,21 +31,22 @@
    		<form:form action="/item/create" method="post" modelAttribute="newItem">
    			<div>
    				<form:hidden path="item_id" />
+   				<form:hidden path="user.id" />
    			</div>
    			<div>
    				<form:label path="description" class="form-label text-warning bg-dark mt-3">Description: </form:label>
    				<form:input path="description" class="form-control border-info border-3 "></form:input>
-   				<form:errors path="description"></form:errors>
+   				<form:errors path="description" class="text-warning"></form:errors>
 			</div>
 			<div>
    				<form:label path="price" class="form-label text-warning bg-dark mt-3">Price: $ </form:label>
    				<form:input path="price" class="form-control border-info border-3 "></form:input>
-   				<form:errors path="price"></form:errors>
+   				<form:errors path="price" class="text-warning"></form:errors>
 			</div>
 			<div>
    				<form:label path="quantity" class="form-label text-warning bg-dark mt-3">Quantity:  </form:label>
    				<form:input path="quantity" type="number" class="form-control border-info border-3 "></form:input>
-   				<form:errors path="quantity"></form:errors>
+   				<form:errors path="quantity" class="text-warning"></form:errors>
 			</div>
 		<!-- shop -->
 			<div >
@@ -61,7 +62,7 @@
    						</div>
    					</c:forEach>
    				</form:select>
-   				<form:errors path="shop"></form:errors>
+   				<form:errors path="shop" class="text-warning"></form:errors>
    			</div> 
 		<%-- 
 		<div>

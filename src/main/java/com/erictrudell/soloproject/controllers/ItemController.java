@@ -50,6 +50,7 @@ public class ItemController {
     	}
 		Long userId = (Long) session.getAttribute("userId");
     	model.addAttribute("userId", userServ.getOneById(userId));
+    	model.addAttribute("user", userServ.getOneById(userId));
 //    	add item constructor to model to render form with binding
     	model.addAttribute("newItem",new Item());
     	model.addAttribute("shops", shopServ.getAll());

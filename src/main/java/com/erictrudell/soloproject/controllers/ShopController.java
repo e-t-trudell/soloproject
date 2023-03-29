@@ -47,7 +47,9 @@ public class ShopController {
     		return "redirect:/";
     	}
 		Long userId = (Long) session.getAttribute("userId");
-    	model.addAttribute("userId", userServ.getOneById(userId));
+//		User user = userServ.getOneById(userId);
+		model.addAttribute("user", userServ.getOneById(userId));
+//    	model.addAttribute("userId", userServ.getOneById(userId));
 //    	add shop constructor to model to render form with binding
     	model.addAttribute("newShop",new Shop());
     	return "newShop.jsp";

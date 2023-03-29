@@ -22,7 +22,7 @@
 </head>
 <body>
    	<div id="box1" class="container d-flex flex-row justify-content-around mt-5">
-   		<h2>Welcome <c:out value="${userId.userName}"/> add a shop!</h2>
+   		<h2>Welcome <c:out value="${user.userName}"/> add a shop!</h2>
    		<a href="/logout"><button class="btn btn-danger m-2">Logout</button></a>
    		<a href="/shop/new"><button class="btn btn-info m-2">+ Add new shop</button></a>
    		<a href="/"><button class="btn btn-primary m-2">+ Add new user</button></a>
@@ -34,12 +34,11 @@
    			<div>
    				<form:hidden path="shop_id" />
    				<form:hidden path="user.id" />
-   				
    			</div>
    			<div class="container m-2">
    				<form:label path="shopName" class="form-label text-warning bg-dark">Title: </form:label>
    				<form:input path="shopName" class="form-control border-info border-3 text-center text-dark"></form:input>
-   				<form:errors path="shopName"></form:errors>
+   				<form:errors path="shopName" class="text-danger"></form:errors>
    				<button class="btn btn-success mt-3 border border-3 border-dark">Add Me!</button>
 			</div>
 		<%-- Add this back in once you have items model created --%>
